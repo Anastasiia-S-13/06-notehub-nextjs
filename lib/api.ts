@@ -14,10 +14,10 @@ interface NoteHttpResponse{
 
 
 
-const baseUrl = "https://notehub-public.goit.study/api/notes";
+axios.defaults.baseURL = "https://notehub-public.goit.study/api/notes";
 
 export async function fetchNotes(query: string, page: number): Promise<NoteHttpResponse> {
-    const response = await axios.get<NoteHttpResponse>(baseUrl, {
+    const response = await axios.get<NoteHttpResponse>("", {
         params: {
             search: query,
             page: page,
@@ -33,7 +33,7 @@ export async function fetchNotes(query: string, page: number): Promise<NoteHttpR
 }
 
 export async function createNote({ title, content, tag }: CreateNotePost): Promise<Note> {
-    const createResponse = await axios.post<Note>(baseUrl,
+    const createResponse = await axios.post<Note>("",
         { title, content, tag },
         {
             headers: {
@@ -46,7 +46,7 @@ export async function createNote({ title, content, tag }: CreateNotePost): Promi
 }
 
 export async function deleteNote(id: string): Promise<Note> {
-    const deleteResponse = await axios.delete<Note>(baseUrl + "/" + id, {
+    const deleteResponse = await axios.delete<Note>(`/${id}`, {
          headers: {
                 accept: "application/json",
                 Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTEHUB_TOKEN}`,

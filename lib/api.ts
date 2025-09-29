@@ -16,7 +16,7 @@ interface NoteHttpResponse{
 
 axios.defaults.baseURL = "https://notehub-public.goit.study/api/notes";
 
-export async function fetchNotes(query: string, page: number): Promise<NoteHttpResponse> {
+export default async function fetchNotes(query: string, page: number): Promise<NoteHttpResponse> {
     const response = await axios.get<NoteHttpResponse>("", {
         params: {
             search: query,

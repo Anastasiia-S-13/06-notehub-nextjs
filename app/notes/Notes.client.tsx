@@ -9,7 +9,7 @@ import NoteList from "@/components/NoteList/NoteList"
 import Modal from "@/components/Modal/Modal"
 import NoteForm from "@/components/NoteForm/NoteForm"
 import Pagination from "@/components/Pagination/Pagination"
-import { fetchNotes } from "@/lib/api"
+import fetchNotes from "@/lib/api";
 import toast, { Toaster } from "react-hot-toast"
 
 export default function App() {

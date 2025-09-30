@@ -31,7 +31,7 @@ export default function NoteList({ notes }: NoteListProps) {
             <p className={css.content}>{note.content}</p>
             <div className={css.footer}>
                 <span className={css.tag}>{note.tag}</span>
-                <Link href="/app/notes/[id]/NoteDetails.client.tsx">View details</Link>
+                <Link href={`/notes/${note.id}`}>View details</Link>
                 <button onClick={() => handleDeleteNote(note.id)} className={css.button}>Delete</button>
             </div>
         </li>))}
